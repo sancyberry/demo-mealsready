@@ -6,12 +6,6 @@
     >
       Home
     </router-link>
-    <router-link
-      :to="{ name: 'by-ingredient/Chicken' }"
-      class="inline-flex items-center h-full px-5 text-orange-500 font-bold"
-    >
-      Chicken
-    </router-link>
     <div class="flex items-center gap-1">
       <router-link
         :to="{ name: 'byName' }"
