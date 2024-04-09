@@ -77,20 +77,20 @@ const siteData = reactive({
   title: `Meals Single`,
   description: `Meals Single Details`,
 })
-const mealDetails = computed(() => ({
-  title: meal.value.strMeal,
-  description: meal.value.strInstructions,
-  image: meal.value.strMealThumb,
-  url: meal.value.strYoutube,
-}))
+// const mealDetails = computed(() => ({
+//   title: meal.value.strMeal,
+//   description: meal.value.strInstructions,
+//   image: meal.value.strMealThumb,
+//   url: meal.value.strYoutube,
+// }))
 
 useHead({
   // Can be static or computed
-  title: computed(() => mealDetails.value.title),
+  title: computed(() => meal.value.strMeal),
   meta: [
     {
       name: `description`,
-      content: computed(() => mealDetails.value.description),
+      content: computed(() => meal.value.strInstructions),
     },
     {
       // Additional meta tag
@@ -103,7 +103,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: computed(() => mealDetails.value.image)
+      content: computed(() => meal.value.strMealThumb)
     },
     {
       property: 'og:name',
@@ -147,7 +147,7 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: computed(() => mealDetails.value.image)
+      content: computed(() => meal.value.strMealThumb)
     },
     {
       name: 'twitter:title',
@@ -172,9 +172,9 @@ useHead({
       innerHTML: computed(() => JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Recipe',
-        name: mealDetails.value.title,
-        description: mealDetails.value.description,
-        image: [mealDetails.value.image],
+        name: meal.value.strMeal,
+        description: meal.value.strInstructions,
+        image: [meal.value.strMealThumb],
       })),
     },
   ],
