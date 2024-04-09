@@ -110,6 +110,10 @@ useHead({
       content: 'website'
     },
     {
+      property: 'og:type',
+      content: 'meals.item'
+    },
+    {
       property: 'og:title',
       content: 'Meals App'
     },
