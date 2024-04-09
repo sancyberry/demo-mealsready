@@ -63,10 +63,12 @@ const route = useRoute();
 const meal = ref({})
 
 onMounted(async () => {
-  axiosClient.get(`lookup.php?i=${route.params.id}`)
-    .then(({ data }) => {
-      meal.value = data.meals[0] || {}
-    })
+  try {
+    const { data } = await axiosClient.get(`lookup.php?i=${route.params.id}`);
+    meal.value = data.meals?.[0] || {};
+  } catch (error) {
+    console.error('Error fetching meal data:', error);
+  }
 
   const canonicalLink = document.createElement('link');
   canonicalLink.rel = 'canonical';
