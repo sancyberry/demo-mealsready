@@ -75,16 +75,6 @@ onMounted(async () => {
   canonicalLink.href = document.location.href;
   document.head.appendChild(canonicalLink);
 })
-const siteData = reactive({
-  title: `Meals Single`,
-  description: `Meals Single Details`,
-})
-// const mealDetails = computed(() => ({
-//   title: meal.value.strMeal,
-//   description: meal.value.strInstructions,
-//   image: meal.value.strMealThumb,
-//   url: meal.value.strYoutube,
-// }))
 
 useHead({
   // Can be static or computed
