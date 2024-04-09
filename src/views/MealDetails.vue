@@ -73,7 +73,10 @@ onMounted(async () => {
   canonicalLink.href = document.location.href;
   document.head.appendChild(canonicalLink);
 })
-
+const siteData = reactive({
+  title: `Meals Single`,
+  description: `Meals Single Details`,
+})
 const mealDetails = computed(() => ({
   title: meal.value.strMeal,
   description: meal.value.strInstructions,
@@ -90,28 +93,77 @@ useHead({
       content: computed(() => mealDetails.value.description),
     },
     {
-      name: 'keywords',
-      content: 'food, recipe, cooking'
+      // Additional meta tag
+      name: `keywords`,
+      content: computed(() => "food, recipe, cooking"),
     },
     {
-      property: 'og:title',
-      content: computed(() => mealDetails.value.title)
-    },
-    {
-      property: 'og:description',
-      content: computed(() => mealDetails.value.description)
+      property: 'og:locale',
+      content: 'en_US'
     },
     {
       property: 'og:image',
       content: computed(() => mealDetails.value.image)
     },
     {
+      property: 'og:name',
+      content: 'website'
+    },
+    {
+      property: 'og:type',
+      content: 'meals.item'
+    },
+    {
+      property: 'og:title',
+      content: 'Meals App'
+    },
+    {
+      property: 'og:description',
+      content: 'Meals App Home'
+    },
+    {
       property: 'og:url',
       content: computed(() => document.location.href)
     },
     {
-      property: 'og:type',
-      content: 'article'
+      property: 'og:site_name',
+      content: 'Meals'
+    },
+    {
+      property: 'og:image:alt',
+      content: 'Meals App | Home'
+    },
+    {
+      property: 'og:image:width',
+      content: '1200'
+    },
+    {
+      property: 'og:image:height',
+      content: '630'
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      name: 'twitter:image',
+      content: computed(() => mealDetails.value.image)
+    },
+    {
+      name: 'twitter:title',
+      content: 'Meals App'
+    },
+    {
+      name: 'twitter:description',
+      content: 'Meals App Home'
+    },
+    {
+      name: 'twitter:site',
+      content: '@Meals'
+    },
+    {
+      name: 'twitter:creator',
+      content: '@Meals'
     },
   ],
   script: [
